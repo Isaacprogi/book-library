@@ -1,0 +1,192 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "author": "Williams Asam",
+      "title":"The green Land",
+      "avatar": "",
+      "file":"sam.pdf",
+      "category":"Maths"
+    },
+    {
+      "id": 2,
+      "author": "Jonathan Agba",
+      "title":"Snail trap",
+      "avatar": "typicode",
+      "file":"This is the way",
+      "category":"English"
+    },
+    {
+      "id": 3,
+      "author": "json-server",
+      "title":"",
+      "avatar": "typicode",
+      "file":"This is the way",
+      "category":"English"
+    },
+    {
+      "id": 4,
+      "author": "json-server",
+      "title":"",
+      "avatar": "typicode",
+      "file":"This is the way",
+      "category":"English"
+    },
+    {
+      "id": 5,
+      "author": "json-server",
+      "title":"",
+      "avatar": "typicode",
+      "file":"This is the way",
+      "category":"Chemistry"
+    },
+    {
+      "id": 6,
+      "author": "json-server",
+      "title":"",
+      "avatar": "typicode",
+      "file":"This is the way",
+      "category":"Chemistry"
+      
+    },
+    {
+      "id": 7,
+      "author": "json-server",
+      "title":"",
+      "avatar": "typicode",
+      "file":"This is the way",
+      "category":"Agriculture"
+    },
+    {
+      "id": 8,
+      "author": "json-server",
+      "title":"",
+      "avatar": "typicode",
+      "file":"This is the way",
+      "category":"Agriculture"
+    },
+    {
+      "id": 9,
+      "author": "json-server",
+      "title":"",
+      "avatar": "typicode",
+      "file":"This is the way",
+      "category":"Agriculture"
+    },
+    {
+      "id": 10,
+      "author": "json-server",
+      "title":"",
+      "avatar": "typicode",
+      "file":"This is the way",
+      "category":"Agriculture"
+    },
+    {
+      "id": 11,
+      "author": "json-server",
+      "title":"",
+      "avatar": "typicode",
+      "file":"This is the way",
+      "category":"Physics"
+    },
+    {
+      "id": 12,
+      "author": "json-server",
+      "title":"",
+      "avatar": "typicode",
+      "file":"This is the way",
+      "category":"Physics"
+      
+    },
+    {
+      "id": 13,
+      "author": "json-server",
+      "title":"",
+      "avatar": "typicode",
+      "file":"This is the way",
+      "category":"Physics"
+    },
+    {
+      "id": 1,
+      "author": "json-server",
+      "title":"",
+      "avatar": "typicode",
+      "file":"This is the way",
+      "category":"Physics"
+    },
+    {
+      "id": 14,
+      "author": "json-server",
+      "title":"",
+      "avatar": "typicode",
+      "file":"This is the way",
+      "category":"Physics"
+    },
+    {
+      "id": 15,
+      "author": "json-server",
+      "title":"",
+      "avatar": "typicode",
+      "file":"This is the way",
+      "category":"Physics"
+    },
+    {
+      "id": 16,
+      "author": "json-server",
+      "title":"",
+      "avatar": "typicode",
+      "file":"This is the way",
+      "category":"Physics"
+    },
+    {
+      "id": 1,
+      "author": "json-server",
+      "title":"",
+      "avatar": "typicode",
+      "file":"This is the way",
+      "category":"Physics"
+    },
+    {
+      "id": 17,
+      "author": "json-server",
+      "title":"",
+      "avatar": "typicode",
+      "file":"This is the way",
+      "category":"Biology"
+    },
+    {
+      "id": 18,
+      "author": "json-server",
+      "title":"",
+      "avatar": "typicode",
+      "file":"This is the way",
+      "category":"Biology"
+    },
+    {
+      "id": 19,
+      "author": "json-server",
+      "title":"",
+      "avatar": "typicode",
+      "file":"This is the way",
+      "category":"Biology"
+
+
+    },
+    {
+      "id": 20,
+      "author": "json-server",
+      "title":"",
+      "avatar": "typicode",
+      "file":"This is the way",
+      "category":"Agriculture"
+    },
+    {
+      "id": 21,
+      "author": "json-server",
+      "title":"",
+      "avatar": "typicode",
+      "file":"This is the way",
+      "category":"Biology"
+    }
+  ]
+}
