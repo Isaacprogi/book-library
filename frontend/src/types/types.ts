@@ -171,12 +171,59 @@ export type authError = {
   logout: string, 
   refresh: string
 }
+
+export type userLoading = {
+  getUsers: boolean
+  getUser: boolean,
+  deleteUser: boolean, 
+  updateUser: boolean
+  addUser: boolean
+}
+
+
+export type userError = {
+  getUsers: string
+  getUser: string,
+  deleteUser: string, 
+  updateUser: string
+  addUser: string
+}
+
 export type authLoading = {
   login: boolean
   register: boolean,
   logout: boolean, 
   refresh: boolean
 }
+
+
+export interface UserContextType {
+  users:User[],
+  user: User | null,
+  error: userError,
+  loading:userLoading,
+  setError: React.Dispatch<React.SetStateAction<{
+    getUsers: string
+    getUser: string,
+    deleteUser: string, 
+    updateUser: string
+    addUser: string
+  }>>
+  setLoading: React.Dispatch<React.SetStateAction<{
+    getUsers: boolean
+  getUser: boolean,
+  deleteUser: boolean, 
+  updateUser: boolean
+  addUser: boolean
+  }>>
+  getUsers: () => void;
+  getUser: (userId:string) => void;
+  addUser: (userData: Omit<User, '_id'>) => void;
+  deleteUser: (userId:string) => void
+  updateUser: (userId:string,user:Partial<User>) => void;
+}
+
+
 
 
 export interface AuthContextType {

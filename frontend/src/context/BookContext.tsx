@@ -1,4 +1,4 @@
-import React, { createContext, ReactElement, useReducer } from "react";
+import React, { createContext, ReactElement, useEffect, useReducer } from "react";
 import {BookAction, BookContextProps,Book, BookState, bookError, bookLoading } from "../types/types";
 import {fetchBooksApiCall,getBookApiCall } from "../api/book";
 import { useState } from "react"
@@ -24,6 +24,8 @@ const BookContextProvider: React.FC<{ children: ReactElement }> = ({ children })
     searchBooks:false,
     getBook:false,
   })
+
+
   
   const [error, setError] = useState<bookError>({
     getBooks:"",
@@ -50,6 +52,7 @@ const BookContextProvider: React.FC<{ children: ReactElement }> = ({ children })
     setError(prev => ({ ...prev, getBook: '' }))
     try {
       const { data }:{data:Book} = await getBookApiCall(id);
+      console.log(data)
       dispatch({ type: "GET_BOOK", payload: data });
       setLoading(prev => ({ ...prev, getBook: false }))
     } catch (error: any) {
@@ -81,7 +84,7 @@ const BookContextProvider: React.FC<{ children: ReactElement }> = ({ children })
     dispatch,
     getBooks,
     getBook,
-    searchBooks
+    searchBooks,
   };
 
 

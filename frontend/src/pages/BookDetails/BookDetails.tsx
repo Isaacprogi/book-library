@@ -7,12 +7,14 @@ import { useCollectionContext } from "../../hooks/useCollectionContext"
 
 const BookDetails = () => {
     const { id } = useParams()
-    const { getBook, currentBook } = useBookContext()
+    const { getBook, state} = useBookContext()
     const { addToCollection, removeFromCollection, loading,error } = useCollectionContext()
 
     useEffect(() => {
         getBook(id)
     }, [])
+
+    console.log(state.currentBook)
 
     function handleAdd() {
         addToCollection()
@@ -23,24 +25,26 @@ const BookDetails = () => {
     }
 
     return (
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col  w-full">
 
-            <div className="w-full">
-                <div className="w-full max-w-[20rem] h-[40rem]">
-                    <img src={BookPlaceholder} alt="" />
+            <div className="w-full flex items-center bg-red-500">
+                <div className="w-full max-w-[20rem] h-[20rem]">
+                    <img className="w-full " src={BookPlaceholder} alt="" />
                 </div>
                 <div className="flex flex-col gap-y-[1rem]">
                     <span>
-                        {currentBook.title}
+                        {state.currentBook?.title}
                     </span>
                     <span>
-                        {currentBook.author}
+                        {state.currentBook?.author}
                     </span>
                     <span>
-                        {currentBook.category}
+                        {state.currentBook?.category}
                     </span>
                 </div>
             </div>
+
+
             <div className="flex gap-[1rem]">
                 <span onClick={handleAdd} className="h-[2rem] bg-blue-500 flex items-center justify-center hover:bg-blue-600 duration-300  w-[8rem]">
                     {loading.addToCollection ? <ClipLoader size={18} color="white" /> : 'Add to Collection'}

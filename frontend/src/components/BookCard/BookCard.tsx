@@ -141,7 +141,7 @@ const BookCard: React.FC<Props> = (props) => {
             </Modal>
 
             <div className={`${props.type === 'books' ? "w-[14rem]" : ""} shadow-lg  text-center overflow-hidden`}>
-                <div style={{ minHeight: props.type === 'books' ? "12rem" : "", maxWidth: props.type === "books" ? "14rem" : "" }} onClick={() => navigate(`/book/${props.book._id}`)} className='h-[17rem] rounded-t-md   overflow-hidden hover:opacity-[.7] duration-300'>
+                <div style={{ minHeight: props.type === 'books' ? "12rem" : "", maxWidth: props.type === "books" ? "14rem" : "" }} onClick={() => navigate(`/books/${props.book._id}`)} className='h-[17rem] rounded-t-md   overflow-hidden hover:opacity-[.7] duration-300'>
                     <img src={BookPlaceHolder} className='w-full h-full object-cover' alt="" />
                 </div>
                 <div className='font-[500] w-full whitspace-nowrap text-ellipsis'>{props.book?.author}</div>

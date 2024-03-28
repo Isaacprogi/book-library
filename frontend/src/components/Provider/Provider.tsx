@@ -5,21 +5,24 @@ import StatusContextProvider from '../../context/StatusContext'
 import CollectionContextProvider from '../../context/CollectionContext.tsx'
 import HeaderContextProvider from '../../context/HeaderContext'
 import TaskContextProvider from '../../context/TaskContext'
+import { UserContextProvider } from '../../context/UserContext.tsx'
 
 const Provider: React.FC<{ children: React.ReactElement }> = ({ children }) => {
   return (
     <AuthContextProvider>
-    <BookContextProvider>
-    <CollectionContextProvider>
-      <HeaderContextProvider>
-        <TaskContextProvider>
-          <StatusContextProvider>
-            {children}
-          </StatusContextProvider>
-        </TaskContextProvider>
-      </HeaderContextProvider>
-    </CollectionContextProvider>
-    </BookContextProvider>
+      <UserContextProvider>
+        <BookContextProvider>
+          <CollectionContextProvider>
+            <HeaderContextProvider>
+              <TaskContextProvider>
+                <StatusContextProvider>
+                  {children}
+                </StatusContextProvider>
+              </TaskContextProvider>
+            </HeaderContextProvider>
+          </CollectionContextProvider>
+        </BookContextProvider>
+      </UserContextProvider>
     </AuthContextProvider>
   )
 }

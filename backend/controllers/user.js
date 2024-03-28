@@ -1,59 +1,74 @@
-const TaskModel = require('../models/Task')
+const UserModel = require('../models/User');
 
-const getTasks = async (req, res, next) => {
+const getUsers = async (req, res, next) => {
   try {
-    const tasks = await TaskModel.find({ creator: req.user });
-    res.status(200).json(tasks);
+    const users = await UserModel.find({});
+    res.status(200).json(users);
   } catch (error) {
-    return next({ message: 'Internal Server Error' });
+    next({ status: 500, message: 'Internal Server Error', error });
   }
 };
 
-const addTask = async (req, res, next) => {
-    const {title,description,status,dueDate} = req.body
-    const creator = req.user
-    if(!title || !description || !status || !dueDate){
-        return next({ message: 'Please complete task details' });
+const getUser = async (req, res, next) => {
+  try {
+    const user = await UserModel.findById(req.params.id);
+    if (!user) {
+      return next({ status: 404, message: 'User not found' });
     }
-  try {
-    const task = new TaskModel({ ...req.body, creator });
-    const savedTask = await task.save();
-    res.status(200).json(savedTask);
+    res.status(200).json(user);
   } catch (error) {
-    console.log(error)
-    return next({ message: 'Internal Server Error' });
+    next({ status: 500, message: 'Internal Server Error', error });
   }
 };
 
-const deleteTask = async (req, res, next) => {
+const addUser = async (req, res, next) => {
+  const { username, email, password } = req.body;
+  if (!username || !email || !password) {
+    return next({ status: 400, message: 'Please complete all user details' });
+  }
+
   try {
-    const taskId = req.params.id;
-    await TaskModel.findByIdAndDelete(taskId);
-    res.status(200).json("success");
+    const user = new UserModel({ username, email, password });
+    const savedUser = await user.save();
+    res.status(201).json(savedUser);
   } catch (error) {
-    return next({ message: 'Internal Server Error' });
+    next({ status: 500, message: 'Internal Server Error', error });
   }
 };
 
-const updateTask = async (req, res, next) => {
-  const {title,description,status,dueDate} = req.body
-    if(!title || !description || !status || !dueDate){
-        return next({ message: 'Please complete task details' });
+const deleteUser = async (req, res, next) => {
+  try {
+    const result = await UserModel.findByIdAndDelete(req.params.id);
+    if (!result) {
+      return next({ status: 404, message: 'User not found' });
     }
-  try {
-    const taskId = req.params.id;
-    const updatedTask = req.body;
-    await TaskModel.findByIdAndUpdate(taskId, updatedTask);
-    res.status(200).json('success')
+    res.status(204).json({ message: 'User deleted successfully' });
   } catch (error) {
-    console.log(error)
-    return next({ message: 'Internal Server Error' });
+    next({ status: 500, message: 'Internal Server Error', error });
+  }
+};
+
+const updateUser = async (req, res, next) => {
+  const { username, email } = req.body;
+  if (!username || !email) {
+    return next({ status: 400, message: 'Please complete all required fields' });
+  }
+
+  try {
+    const updatedUser = await UserModel.findByIdAndUpdate(req.params.id, { username, email }, { new: true });
+    if (!updatedUser) {
+      return next({ status: 404, message: 'User not found' });
+    }
+    res.status(200).json(updatedUser);
+  } catch (error) {
+    next({ status: 500, message: 'Internal Server Error', error });
   }
 };
 
 module.exports = {
-  getTasks,
-  addTask,
-  deleteTask,
-  updateTask,
+  getUsers,
+  getUser,
+  addUser,
+  deleteUser,
+  updateUser,
 };

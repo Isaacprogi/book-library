@@ -1,0 +1,12 @@
+import { UserContextType } from '../types/types';
+import {useContext} from 'react'
+import { UserContext } from '../context/UserContext';
+
+export const useUserContext = (): UserContextType => {
+    const context = useContext(UserContext);
+    if (!context) {
+      throw new Error('useUserContext must be used within an UserContextProvider');
+    }
+    return context;
+  };
+  

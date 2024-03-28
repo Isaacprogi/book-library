@@ -92,7 +92,7 @@ const UserCard: React.FC<UserCardProps> = (props) => {
 
       <Modal isOpen={showConfirmModal2} onClose={() => setShowConfirmModal2(false)}>
         <form className='w-full p-4 min-h-[20rem] flex flex-col gap-4 items-center justify-center max-w-[30rem] rounded-md bg-white'>
-          <h1 className='text-center text-[1.5rem] text-black'>{props.user.username} info</h1>
+          <h1 className='text-center text-[1.5rem] text-black'>{props.user.fullName}</h1>
           <input
             type="file"
             id="avatar"
@@ -165,13 +165,15 @@ const UserCard: React.FC<UserCardProps> = (props) => {
 
 
       <tr onClick={handleClick} className="bg-white relative hover:bg-gray-200 duration-300 cursor-pointer border-b" key={props.user._id}>
-        <td  className="py-8 px-6"><img className='w-10 border rounded-full h-10' src={props.user.avatar}/></td>
-        <td className="py-8 px-6">{props.user.fullName}</td>
+        <td className="py-8 items-center gap-[.2rem] flex px-6">
+          <img className='w-10 border rounded-full h-10' src={props.user.avatar}/>
+          {props.user.fullName}
+          </td>
         <td className="py-8 px-6">{props.user.email}</td>
         <td className="py-8 px-6">{props.user.course}</td>
         <td className="py-8 px-6">{props.user.role}</td>
 
-        <div className="absolute left-0 px-[1rem] flex items-center gap-[1rem] bottom-[.2rem]">
+        <td className="absolute left-0 px-[1rem] flex items-center gap-[1rem] bottom-[.2rem]">
 
           <div onClick={handleEdit} className="w-[1.5rem] h-[1.5rem] hover:bg-gray-100 rounded-full  text-black flex items-center justify-center overflow-hidden">
             <FaPencilAlt />
@@ -181,7 +183,7 @@ const UserCard: React.FC<UserCardProps> = (props) => {
             <FaTrash />
           </div>
 
-        </div>
+        </td>
       </tr>
 
     </>

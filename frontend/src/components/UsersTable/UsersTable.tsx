@@ -1,31 +1,15 @@
 import UserCard from "../UserCard/UserCard";
 import { User } from "../../types/types";
-
-const users:User[] = [
-  {
-    _id: "65f9cac253bdkdkk49077183c395c",
-    fullName: "Isaac Anasonye",
-    email: "isaaconyes80@gmail.com",
-    username:'maiki',
-    avatar: "http://res.cloudinary.com/dbtjysxp1/image/upload/v1710869185/deck_task…",
-    course: "Computer Science",
-    bookCollection: [],
-    role: "admin"
-  },
-  {
-    _id: "65f9cac253b49077183c395c",
-    fullName: "Isaac Anasonye",
-    username:'kiri',
-    email: "isaaconyes80@gmail.com",
-    avatar: "http://res.cloudinary.com/dbtjysxp1/image/upload/v1710869185/deck_task…",
-    course: "Computer Science",
-    bookCollection: [],
-    role: "admin"
-  },
-
-];
+import { useUserContext } from "../../hooks/useUserContext";
+import { useEffect } from "react";
 
 const UserTable = () => {
+     const {users,getUsers}:{users:User[],getUsers:()=>void} = useUserContext()
+
+     useEffect(()=>{
+          getUsers()
+     },[])
+     
 
   return (
     <div className="overflow-x-auto mt-[2rem] relative ">
